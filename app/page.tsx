@@ -1,4 +1,3 @@
-import { CalendarDays, Heart, MapPin } from 'lucide-react';
 import { Countdown } from '@/components/countdown';
 import { Reveal } from '@/components/reveal';
 import { VenueActions } from '@/components/venue-actions';
@@ -114,7 +113,6 @@ export default function Home() {
             <Reveal>
               <div className="flex min-h-[27rem] flex-col justify-between rounded-[1.3rem] bg-primary p-7 text-primary-foreground sm:p-10">
                 <div className="flex items-center gap-2 text-sm font-medium">
-                  <CalendarDays aria-hidden="true" className="size-5" strokeWidth={1.8} />
                   生日宴时间
                 </div>
                 <div className="py-10">
@@ -135,7 +133,7 @@ export default function Home() {
 
             <Reveal delay={80}>
               <div className="flex min-h-[27rem] flex-col justify-between rounded-[1.3rem] border border-border bg-card p-7 text-card-foreground sm:p-10">
-                <MapPin aria-hidden="true" className="size-8 text-primary" strokeWidth={1.7} />
+                <p className="text-sm font-medium text-primary">宴会地点</p>
                 <div className="mt-16">
                   <h3 className="text-3xl font-semibold leading-tight tracking-[-0.035em]">
                     5Senses
@@ -189,8 +187,7 @@ export default function Home() {
       <section className="px-5 py-24 sm:px-8 md:py-36">
         <Reveal className="mx-auto max-w-5xl">
           <div className="rounded-[1.3rem] bg-secondary px-7 py-16 text-secondary-foreground sm:px-14 md:py-24">
-            <Heart aria-hidden="true" className="size-8 text-primary" strokeWidth={1.6} />
-            <p className="mt-10 max-w-4xl text-3xl font-semibold leading-[1.35] tracking-[-0.035em] sm:text-4xl md:text-5xl">
+            <p className="max-w-4xl text-3xl font-semibold leading-[1.35] tracking-[-0.035em] sm:text-4xl md:text-5xl">
               她还不懂生日的意义，却已经懂得用笑容拥抱每一个爱她的人。
             </p>
             <p className="mt-8 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
