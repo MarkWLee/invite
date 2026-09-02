@@ -20,10 +20,10 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: '李施安一周岁生日宴',
-  description: '诚邀你参加李施安的一周岁生日宴。2026年9月25日，相约上海武康路。',
+  title: '安安一周岁生日宴',
+  description: '诚邀你参加安安的一周岁生日宴。2026年9月25日，相约上海武康路。',
   openGraph: {
-    title: '李施安一周岁生日宴',
+    title: '安安一周岁生日宴',
     description: '2026年9月25日 11:30，相约5Senses武康花园餐厅。',
     type: 'website',
     locale: 'zh_CN',
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: '李施安一周岁生日宴，2026年9月25日11:30',
+        alt: '安安一周岁生日宴，2026年9月25日11:30',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '李施安一周岁生日宴',
+    title: '安安一周岁生日宴',
     description: '2026年9月25日 11:30，相约5Senses武康花园餐厅。',
     images: ['/og.png'],
   },

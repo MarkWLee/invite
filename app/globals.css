@@ -108,9 +108,22 @@
 }
 
 .botanical-card {
+  background-color: rgb(255 250 241 / 60%);
   background-image: url('/card-frame-v2.png');
+  background-blend-mode: screen;
   background-position: center;
   background-size: cover;
+}
+
+.botanical-card::after {
+  position: absolute;
+  z-index: 0;
+  inset: 1.15rem;
+  border: 1px solid rgb(174 143 87 / 28%);
+  border-radius: 0.8rem;
+  background: rgb(255 250 241 / 91%);
+  content: '';
+  pointer-events: none;
 }
 
 .editorial-serif {

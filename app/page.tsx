@@ -6,19 +6,19 @@ import Image from 'next/image';
 const earlyMoments = [
   {
     src: '/photos/newborn.jpg',
-    alt: '刚出生不久的李施安被家人抱在怀里',
+    alt: '刚出生不久的安安被家人抱在怀里',
     caption: '初见 · 小小的你来到我们身边',
     position: 'object-[50%_44%]',
   },
   {
     src: '/photos/hundred-days.jpg',
-    alt: '一百天的李施安躺在花纹床单上微笑',
+    alt: '一百天的安安躺在花纹床单上微笑',
     caption: '百日 · 笑容开始照亮每一天',
     position: 'object-center',
   },
   {
     src: '/photos/first-smile.jpg',
-    alt: '李施安躺在枕头上开心微笑',
+    alt: '安安躺在枕头上开心微笑',
     caption: '成长 · 每天都多一点可爱',
     position: 'object-center',
   },
@@ -27,25 +27,25 @@ const earlyMoments = [
 const growingMoments = [
   {
     src: '/photos/growing.jpg',
-    alt: '李施安趴着认真看向镜头',
+    alt: '安安趴着认真看向镜头',
     caption: '好奇这个世界',
     position: 'object-[50%_42%]',
   },
   {
     src: '/photos/winter.jpg',
-    alt: '李施安戴着红色帽子依偎在家人怀里',
+    alt: '安安戴着红色帽子依偎在家人怀里',
     caption: '被爱包围的冬天',
     position: 'object-[50%_40%]',
   },
   {
     src: '/photos/summer-bed.jpg',
-    alt: '李施安坐在粉色沙发上',
+    alt: '安安坐在粉色沙发上',
     caption: '会坐啦',
     position: 'object-[50%_45%]',
   },
   {
     src: '/photos/summer-play.jpg',
-    alt: '李施安在家中开心玩耍',
+    alt: '安安在家中开心玩耍',
     caption: '快乐长大',
     position: 'object-center',
   },
@@ -55,8 +55,8 @@ export default function Home() {
   return (
     <main className="card-stack overflow-x-clip bg-background px-3 py-3 text-foreground sm:px-6 sm:py-8">
       <section className="card-stage" aria-labelledby="invitation-title">
-        <article className="invitation-card botanical-card hero-media flex min-h-[calc(100dvh-1.5rem)] w-full max-w-[34rem] items-center justify-center px-11 py-28 text-center sm:min-h-[52rem] sm:px-20 sm:py-32">
-          <div className="hero-copy flex w-full max-w-sm flex-col items-center">
+        <article className="invitation-card botanical-card hero-media flex min-h-[calc(100dvh-1.5rem)] w-full max-w-[34rem] items-center justify-center px-11 py-24 text-center sm:min-h-[52rem] sm:px-20">
+          <div className="hero-copy relative z-10 flex w-full max-w-sm flex-col items-center">
             <p className="editorial-serif text-lg italic tracking-[0.08em] text-primary sm:text-xl">
               Birthday Invitation
             </p>
@@ -64,13 +64,13 @@ export default function Home() {
               id="invitation-title"
               className="mt-4 text-[clamp(2.65rem,12vw,4.4rem)] font-medium leading-[1.04] tracking-[0.05em] text-foreground"
             >
-              李施安
+              安安
               <span className="mt-2 block text-[0.56em] tracking-[0.12em] text-primary">一周岁生日宴</span>
             </h1>
             <figure className="portrait-oval mt-7 h-48 w-36 sm:h-56 sm:w-44">
               <Image
                 src="/photos/hero.jpg"
-                alt="李施安开心地坐着微笑"
+                alt="安安开心地坐着微笑"
                 fill
                 priority
                 sizes="(min-width: 640px) 176px, 144px"
@@ -78,7 +78,7 @@ export default function Home() {
               />
             </figure>
             <a href="#details" className="date-button mt-7">
-              2026 · 09 · 25
+              2026.09.25
             </a>
           </div>
         </article>
@@ -87,8 +87,7 @@ export default function Home() {
       <section id="details" className="card-stage scroll-mt-4" aria-labelledby="details-title">
         <article className="invitation-card botanical-card gilded-card flex min-h-[52rem] w-full max-w-[34rem] items-center justify-center px-10 py-28 text-center sm:px-20">
           <Reveal className="relative z-10 flex w-full max-w-sm flex-col items-center">
-            <p className="editorial-serif text-lg italic tracking-[0.08em] text-primary">Banquet Details</p>
-            <h2 id="details-title" className="mt-3 text-4xl font-medium tracking-[0.08em] sm:text-5xl">
+            <h2 id="details-title" className="text-4xl font-medium tracking-[0.08em] sm:text-5xl">
               诚挚邀请
             </h2>
             <p className="mt-4 max-w-xs text-sm leading-7 text-muted-foreground">
@@ -122,8 +121,7 @@ export default function Home() {
       <section className="card-stage" aria-labelledby="story-title">
         <article className="invitation-card gilded-card flex min-h-[52rem] w-full max-w-[34rem] items-center bg-card px-8 py-20 sm:px-14">
           <Reveal className="relative z-10 w-full text-center">
-            <p className="editorial-serif text-lg italic tracking-[0.08em] text-primary">Our First Year</p>
-            <h2 id="story-title" className="mt-3 text-3xl font-medium leading-snug tracking-[0.05em] sm:text-4xl">
+            <h2 id="story-title" className="text-3xl font-medium leading-snug tracking-[0.05em] sm:text-4xl">
               这一岁，是爱写下的故事
             </h2>
             <p className="mx-auto mt-3 max-w-sm text-sm leading-7 text-muted-foreground">
@@ -154,8 +152,7 @@ export default function Home() {
       <section className="card-stage" aria-labelledby="growing-title">
         <article className="invitation-card gilded-card flex min-h-[52rem] w-full max-w-[34rem] items-center bg-card px-8 py-20 sm:px-14">
           <Reveal className="relative z-10 w-full text-center">
-            <p className="editorial-serif text-lg italic tracking-[0.08em] text-primary">Little Wonders</p>
-            <h2 id="growing-title" className="mt-3 text-3xl font-medium leading-snug tracking-[0.05em] sm:text-4xl">
+            <h2 id="growing-title" className="text-3xl font-medium leading-snug tracking-[0.05em] sm:text-4xl">
               会坐，会爬，也会甜甜地笑
             </h2>
 
@@ -183,11 +180,10 @@ export default function Home() {
       <section className="card-stage" aria-labelledby="closing-title">
         <article className="invitation-card botanical-card gilded-card flex min-h-[52rem] w-full max-w-[34rem] items-center justify-center px-11 py-28 text-center sm:px-20">
           <Reveal className="relative z-10 flex w-full max-w-sm flex-col items-center">
-            <p className="editorial-serif text-lg italic tracking-[0.08em] text-primary">With Love</p>
-            <figure className="portrait-oval mt-5 h-52 w-40 sm:h-60 sm:w-48">
+            <figure className="portrait-oval h-52 w-40 sm:h-60 sm:w-48">
               <Image
                 src="/photos/eleven-months.jpg"
-                alt="快一岁的李施安坐在地垫上微笑"
+                alt="快一岁的安安坐在地垫上微笑"
                 loading="lazy"
                 fill
                 sizes="(min-width: 640px) 192px, 160px"
@@ -201,7 +197,7 @@ export default function Home() {
             <p className="mt-5 max-w-xs text-sm leading-7 text-muted-foreground">
               一起吃蛋糕、聊聊天，留下她人生第一个生日里最温暖的回忆。
             </p>
-            <p className="mt-7 text-xs tracking-[0.22em] text-primary">李施安爸爸妈妈 敬邀</p>
+            <p className="mt-7 text-xs tracking-[0.22em] text-primary">安安爸爸妈妈 敬邀</p>
           </Reveal>
         </article>
       </section>
