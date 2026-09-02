@@ -39,17 +39,17 @@ export function Countdown() {
   }, []);
 
   if (timeLeft.state === 'today') {
-    return <p className="text-sm font-semibold">今天见，期待与你相聚</p>;
+    return <p className="mt-4 text-sm font-medium text-primary">今天见，期待与你相聚</p>;
   }
 
   if (timeLeft.state === 'past') {
-    return <p className="text-sm font-semibold">谢谢你见证这份幸福</p>;
+    return <p className="mt-4 text-sm font-medium text-primary">谢谢你见证这份幸福</p>;
   }
 
   return (
     <div aria-live="polite" suppressHydrationWarning>
-      <p className="text-xs text-primary-foreground/75">距离相见还有</p>
-      <p className="mt-2 text-lg font-semibold tabular-nums">
+      <p className="mt-4 text-xs tracking-[0.12em] text-muted-foreground">距离相见还有</p>
+      <p className="mt-1 text-sm font-medium tracking-[0.06em] tabular-nums text-primary">
         {timeLeft.days} 天 {timeLeft.hours} 时 {timeLeft.minutes} 分
       </p>
     </div>

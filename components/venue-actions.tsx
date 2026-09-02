@@ -26,19 +26,19 @@ export function VenueActions() {
     copyState === 'copied' ? '地址已复制' : copyState === 'error' ? '请长按复制' : '复制地址';
 
   return (
-    <div className="mt-7 flex flex-wrap gap-3">
+    <div className="mt-5 flex flex-wrap justify-center gap-3">
       <a
         href={mapUrl}
         target="_blank"
         rel="noreferrer"
-        className="inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold whitespace-nowrap text-primary-foreground transition-transform duration-300 active:scale-[0.98]"
+        className="inline-flex min-h-11 items-center justify-center rounded-full bg-primary px-5 text-sm font-medium tracking-[0.06em] whitespace-nowrap text-primary-foreground transition-transform duration-300 active:scale-[0.98]"
       >
         导航前往
       </a>
       <button
         type="button"
         onClick={copyAddress}
-        className="inline-flex h-12 items-center justify-center rounded-full border border-border bg-background px-5 text-sm font-medium whitespace-nowrap text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50 active:translate-y-px"
+        className="inline-flex h-11 items-center justify-center rounded-full border border-primary/35 bg-card/90 px-5 text-sm font-medium tracking-[0.06em] whitespace-nowrap text-primary transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50 active:translate-y-px"
         aria-live="polite"
       >
         {copyLabel}

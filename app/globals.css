@@ -21,7 +21,7 @@
   --color-ring: var(--ring);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-heading: var(--font-cormorant), "Songti SC", STSong, serif;
   --radius-sm: 0.55rem;
   --radius-md: 0.8rem;
   --radius-lg: 1.05rem;
@@ -31,40 +31,20 @@
 
 :root {
   color-scheme: light;
-  --background: #f1f5f0;
-  --foreground: #23322a;
-  --card: #f9fbf8;
-  --card-foreground: #23322a;
-  --primary: #a84d60;
-  --primary-foreground: #fff9f7;
-  --secondary: #dde8df;
-  --secondary-foreground: #294238;
-  --muted: #e6ece6;
-  --muted-foreground: #5c6f65;
-  --accent: #a84d60;
-  --accent-foreground: #fff9f7;
-  --border: #cbd8ce;
-  --ring: #a84d60;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-    --background: #14221b;
-    --foreground: #edf3ed;
-    --card: #1b2c23;
-    --card-foreground: #edf3ed;
-    --primary: #dc8291;
-    --primary-foreground: #27181c;
-    --secondary: #284035;
-    --secondary-foreground: #edf3ed;
-    --muted: #22382e;
-    --muted-foreground: #b7c5ba;
-    --accent: #dc8291;
-    --accent-foreground: #27181c;
-    --border: #3a5146;
-    --ring: #dc8291;
-  }
+  --background: #ded8dc;
+  --foreground: #493640;
+  --card: #fffaf1;
+  --card-foreground: #493640;
+  --primary: #785263;
+  --primary-foreground: #fffaf3;
+  --secondary: #f3e7e7;
+  --secondary-foreground: #624856;
+  --muted: #eee7e5;
+  --muted-foreground: #76636b;
+  --accent: #785263;
+  --accent-foreground: #fffaf3;
+  --border: #cdbb9a;
+  --ring: #785263;
 }
 
 @layer base {
@@ -83,9 +63,113 @@
     overflow-x: hidden;
   }
 
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading);
+  }
+
   ::selection {
     color: var(--primary-foreground);
     background: var(--primary);
+  }
+}
+
+.invitation-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background-color: var(--card);
+  box-shadow: 0 1.5rem 4rem rgb(73 54 64 / 14%);
+}
+
+.card-stack {
+  scroll-snap-type: y proximity;
+}
+
+.card-stage {
+  display: flex;
+  min-height: 100dvh;
+  align-items: center;
+  justify-content: center;
+  padding-block: 0.75rem;
+  scroll-snap-align: start;
+}
+
+.gilded-card::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0.6rem;
+  border: 1px solid rgb(174 143 87 / 68%);
+  border-radius: 0.85rem;
+  content: '';
+  pointer-events: none;
+}
+
+.botanical-card {
+  background-image: url('/card-frame-v2.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.editorial-serif {
+  font-family: var(--font-heading);
+}
+
+.portrait-oval {
+  position: relative;
+  overflow: hidden;
+  border: 3px solid rgb(255 255 255 / 92%);
+  border-radius: 50%;
+  background: var(--muted);
+  padding: 0.25rem;
+  box-shadow: 0 0.65rem 1.8rem rgb(73 54 64 / 16%);
+}
+
+.photo-arch {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgb(174 143 87 / 55%);
+  border-radius: 999px 999px 0.8rem 0.8rem;
+  background: var(--muted);
+  padding: 0.22rem;
+}
+
+.photo-arch img {
+  border-radius: 999px 999px 0.58rem 0.58rem;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photo-arch:hover img {
+  transform: scale(1.018);
+}
+
+.date-button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(120 82 99 / 50%);
+  border-radius: 999px;
+  background: rgb(255 250 241 / 90%);
+  padding-inline: 1.5rem;
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  box-shadow: 0 0.2rem 0.8rem rgb(73 54 64 / 8%);
+  transition: transform 300ms ease;
+}
+
+.date-button:active {
+  transform: scale(0.98);
+}
+
+@media (min-width: 640px) {
+  .card-stage {
+    padding-block: 1rem;
   }
 }
 
