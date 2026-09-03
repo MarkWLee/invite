@@ -34,22 +34,35 @@ export function Countdown() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft);
 
   useEffect(() => {
-    const timer = window.setInterval(() => setTimeLeft(calculateTimeLeft()), 60_000);
+    const timer = window.setInterval(
+      () => setTimeLeft(calculateTimeLeft()),
+      60_000,
+    );
     return () => window.clearInterval(timer);
   }, []);
 
   if (timeLeft.state === 'today') {
-    return <p className="mt-4 text-sm font-medium text-primary">今天见，期待与你相聚</p>;
+    return (
+      <p className="mt-5 text-sm font-black text-primary">
+        今天见，我已经准备好蛋糕啦！
+      </p>
+    );
   }
 
   if (timeLeft.state === 'past') {
-    return <p className="mt-4 text-sm font-medium text-primary">谢谢你见证这份幸福</p>;
+    return (
+      <p className="mt-5 text-sm font-black text-primary">
+        谢谢你陪我过第一个生日！
+      </p>
+    );
   }
 
   return (
     <div aria-live="polite" suppressHydrationWarning>
-      <p className="mt-4 text-xs tracking-[0.12em] text-muted-foreground">距离相见还有</p>
-      <p className="mt-1 text-sm font-medium tracking-[0.06em] tabular-nums text-primary">
+      <p className="mt-5 text-xs font-semibold text-muted-foreground">
+        距离我们见面还有
+      </p>
+      <p className="mt-1 text-sm font-black tabular-nums text-primary">
         {timeLeft.days} 天 {timeLeft.hours} 时 {timeLeft.minutes} 分
       </p>
     </div>

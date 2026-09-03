@@ -21,7 +21,8 @@
   --color-ring: var(--ring);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-cormorant), "Songti SC", STSong, serif;
+  --font-heading:
+    var(--font-geist-sans), 'PingFang SC', 'Hiragino Sans GB', sans-serif;
   --radius-sm: 0.55rem;
   --radius-md: 0.8rem;
   --radius-lg: 1.05rem;
@@ -31,20 +32,20 @@
 
 :root {
   color-scheme: light;
-  --background: #ded8dc;
-  --foreground: #493640;
-  --card: #fffaf1;
-  --card-foreground: #493640;
-  --primary: #785263;
-  --primary-foreground: #fffaf3;
-  --secondary: #f3e7e7;
-  --secondary-foreground: #624856;
-  --muted: #eee7e5;
-  --muted-foreground: #76636b;
-  --accent: #785263;
-  --accent-foreground: #fffaf3;
-  --border: #cdbb9a;
-  --ring: #785263;
+  --background: #f5b4a4;
+  --foreground: #512a21;
+  --card: #fffaf0;
+  --card-foreground: #512a21;
+  --primary: #bd4f43;
+  --primary-foreground: #fffaf0;
+  --secondary: #fde6de;
+  --secondary-foreground: #6d3529;
+  --muted: #fae9df;
+  --muted-foreground: #765548;
+  --accent: #bd4f43;
+  --accent-foreground: #fffaf0;
+  --border: #ed9b88;
+  --ring: #bd4f43;
 }
 
 @layer base {
@@ -59,7 +60,9 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: var(--font-geist-sans), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    font-family:
+      var(--font-geist-sans), 'PingFang SC', 'Hiragino Sans GB',
+      'Microsoft YaHei', sans-serif;
     overflow-x: hidden;
   }
 
@@ -75,15 +78,6 @@
   }
 }
 
-.invitation-card {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  border-radius: 1.25rem;
-  background-color: var(--card);
-  box-shadow: 0 1.5rem 4rem rgb(73 54 64 / 14%);
-}
-
 .card-stack {
   scroll-snap-type: y proximity;
 }
@@ -97,101 +91,172 @@
   scroll-snap-align: start;
 }
 
-.gilded-card::before {
-  position: absolute;
-  z-index: 1;
-  inset: 0.6rem;
-  border: 1px solid rgb(174 143 87 / 68%);
-  border-radius: 0.85rem;
-  content: '';
-  pointer-events: none;
+.invitation-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background: var(--card);
+  box-shadow: 0 1.4rem 3.8rem rgb(126 62 48 / 18%);
 }
 
-.botanical-card {
-  background-color: rgb(255 250 241 / 60%);
-  background-image: url('/card-frame-v2.png');
-  background-blend-mode: screen;
-  background-position: center;
-  background-size: cover;
+.hero-card {
+  border: 3px solid rgb(255 250 240 / 78%);
 }
 
-.botanical-card::after {
+.paper-card {
+  border: 3px solid var(--primary);
+}
+
+.paper-card::before {
   position: absolute;
   z-index: 0;
-  inset: 1.15rem;
-  border: 1px solid rgb(174 143 87 / 28%);
-  border-radius: 0.8rem;
-  background: rgb(255 250 241 / 91%);
+  inset: 0.75rem;
+  border: 2px dashed rgb(189 79 67 / 52%);
+  border-radius: 1rem;
   content: '';
   pointer-events: none;
 }
 
-.editorial-serif {
-  font-family: var(--font-heading);
+.scribble-note,
+.signature-note {
+  width: fit-content;
+  transform: rotate(-2deg);
+  border: 2px solid var(--primary);
+  border-radius: 999px;
+  background: var(--secondary);
+  padding: 0.55rem 1rem;
+  color: var(--primary);
+  font-size: 0.82rem;
+  font-weight: 800;
 }
 
-.portrait-oval {
+.date-ticket {
+  display: flex;
+  min-height: 8.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  transform: rotate(1deg);
+  border: 3px solid var(--primary);
+  border-radius: 1rem;
+  background: var(--secondary);
+  padding: 1rem 1.25rem;
+  box-shadow: 0.45rem 0.45rem 0 rgb(189 79 67 / 18%);
+}
+
+.date-number {
+  color: var(--primary);
+  font-size: clamp(4.8rem, 23vw, 7rem);
+  font-weight: 900;
+  line-height: 0.78;
+  letter-spacing: -0.08em;
+}
+
+.venue-block {
+  border-radius: 1rem;
+  background: rgb(253 230 222 / 72%);
+  padding: 1.5rem 1rem;
+}
+
+.early-collage,
+.growing-collage {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.snapshot {
   position: relative;
-  overflow: hidden;
-  border: 3px solid rgb(255 255 255 / 92%);
-  border-radius: 50%;
-  background: var(--muted);
-  padding: 0.25rem;
-  box-shadow: 0 0.65rem 1.8rem rgb(73 54 64 / 16%);
+  border: 3px solid var(--primary);
+  border-radius: 1rem;
+  background: #fffdf7;
+  padding: 0.4rem 0.4rem 0.65rem;
+  box-shadow: 0.35rem 0.35rem 0 rgb(189 79 67 / 16%);
 }
 
-.photo-arch {
+.snapshot-photo {
   position: relative;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
-  border: 1px solid rgb(174 143 87 / 55%);
-  border-radius: 999px 999px 0.8rem 0.8rem;
+  border-radius: 0.65rem;
   background: var(--muted);
-  padding: 0.22rem;
 }
 
-.photo-arch img {
-  border-radius: 999px 999px 0.58rem 0.58rem;
-  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+.snapshot figcaption {
+  padding: 0.6rem 0.25rem 0;
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: center;
 }
 
-.photo-arch:hover img {
+.snapshot-early-1,
+.snapshot-growing-1,
+.snapshot-growing-4 {
+  grid-column: 1 / -1;
+}
+
+.snapshot-early-1 {
+  margin-inline: 8%;
+  transform: rotate(-1deg);
+}
+
+.snapshot-early-2,
+.snapshot-growing-3 {
+  transform: rotate(-2deg);
+}
+
+.snapshot-early-3,
+.snapshot-growing-2 {
+  transform: rotate(2deg);
+}
+
+.snapshot-growing-1 {
+  margin-right: 10%;
+  transform: rotate(1deg);
+}
+
+.snapshot-growing-4 {
+  margin-left: 10%;
+  transform: rotate(-1deg);
+}
+
+.snapshot-growing-1 .snapshot-photo,
+.snapshot-growing-4 .snapshot-photo {
+  aspect-ratio: 7 / 5;
+}
+
+.snapshot img,
+.closing-photo img {
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.snapshot:hover img,
+.closing-photo:hover img {
   transform: scale(1.018);
 }
 
-.date-button {
-  display: inline-flex;
-  min-height: 2.75rem;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgb(120 82 99 / 50%);
-  border-radius: 999px;
-  background: rgb(255 250 241 / 90%);
-  padding-inline: 1.5rem;
-  color: var(--primary);
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  white-space: nowrap;
-  box-shadow: 0 0.2rem 0.8rem rgb(73 54 64 / 8%);
-  transition: transform 300ms ease;
-}
-
-.date-button:active {
-  transform: scale(0.98);
-}
-
-@media (min-width: 640px) {
-  .card-stage {
-    padding-block: 1rem;
-  }
+.closing-photo {
+  position: relative;
+  width: min(78vw, 22rem);
+  aspect-ratio: 4 / 5;
+  transform: rotate(1deg);
+  overflow: hidden;
+  border: 0.5rem solid #fffdf7;
+  border-radius: 1rem;
+  outline: 3px solid var(--primary);
+  background: var(--muted);
+  box-shadow: 0.55rem 0.55rem 0 rgb(189 79 67 / 18%);
 }
 
 .reveal {
   opacity: 0;
-  transform: translateY(1.5rem);
+  transform: translateY(1.25rem);
   transition:
-    opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal[data-visible='true'] {
@@ -199,34 +264,34 @@
   transform: translateY(0);
 }
 
+@media (min-width: 640px) {
+  .card-stage {
+    padding-block: 1rem;
+  }
+
+  .early-collage,
+  .growing-collage {
+    gap: 1.25rem;
+  }
+
+  .snapshot figcaption {
+    font-size: 0.82rem;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .hero-copy {
-    animation: hero-copy-in 850ms 100ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
   .hero-media {
-    animation: hero-media-in 1000ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-
-  @keyframes hero-copy-in {
-    from {
-      opacity: 0;
-      transform: translateY(1.25rem);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    animation: hero-media-in 850ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   @keyframes hero-media-in {
     from {
       opacity: 0;
-      transform: scale(1.025);
+      transform: translateY(0.75rem) scale(1.012);
     }
     to {
       opacity: 1;
-      transform: scale(1);
+      transform: translateY(0) scale(1);
     }
   }
 }

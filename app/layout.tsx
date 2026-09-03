@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
 const geistSans = Geist({
@@ -12,19 +12,12 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-const cormorant = Cormorant_Garamond({
-  variable: '--font-cormorant',
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  style: ['normal', 'italic'],
-});
-
 export const metadata: Metadata = {
   title: '安安一周岁生日宴',
-  description: '诚邀你参加安安的一周岁生日宴。2026年9月25日，相约上海武康路。',
+  description: '嗨，我是安安！9月25日来陪我吹蜡烛、吃蛋糕吧。',
   openGraph: {
     title: '安安一周岁生日宴',
-    description: '2026年9月25日 11:30，相约5Senses武康花园餐厅。',
+    description: '9月25日来陪我吹蜡烛、吃蛋糕吧！',
     type: 'website',
     locale: 'zh_CN',
     images: [
@@ -39,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '安安一周岁生日宴',
-    description: '2026年9月25日 11:30，相约5Senses武康花园餐厅。',
+    description: '9月25日来陪我吹蜡烛、吃蛋糕吧！',
     images: ['/og.png'],
   },
 };
@@ -51,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
     </html>
