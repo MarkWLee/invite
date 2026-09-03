@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: '嗨，我是安安！9月25日来陪我吹蜡烛、吃蛋糕吧。',
   openGraph: {
     title: '安安一周岁生日宴',
-    description: '9月25日来陪我吹蜡烛、吃蛋糕吧！',
+    description: '9月25日上午11点，来陪我吹蜡烛、吃蛋糕吧！',
     type: 'website',
     locale: 'zh_CN',
     images: [
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: '安安一周岁生日宴，2026年9月25日11:30',
+        alt: '安安一周岁生日宴，2026年9月25日上午11点',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: '安安一周岁生日宴',
-    description: '9月25日来陪我吹蜡烛、吃蛋糕吧！',
+    description: '9月25日上午11点，来陪我吹蜡烛、吃蛋糕吧！',
     images: ['/og.png'],
   },
 };

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-const eventTime = new Date('2026-09-25T11:30:00+08:00').getTime();
+const eventTime = new Date('2026-09-25T11:00:00+08:00').getTime();
 const eventDayEnd = new Date('2026-09-25T23:59:59+08:00').getTime();
 
 type TimeLeft =
