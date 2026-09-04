@@ -76,45 +76,49 @@ export default function Home() {
         className="page-slide"
         aria-labelledby="details-title"
       >
-        <article className="page-card paper-card detail-page">
+        <article className="page-card illustrated-card detail-page">
           <Reveal className="page-content detail-content">
-            <p className="scribble-note">安安的生日小纸条</p>
-            <h2 id="details-title" className="page-title text-center">
-              9月25日，等你呀！
-            </h2>
-            <p className="page-subtitle text-center">
-              一起吹蜡烛、吃蛋糕，我还要收好多好多抱抱！
-            </p>
+            <div className="details-sheet">
+              <p className="scribble-note">安安的生日小纸条</p>
+              <h2 id="details-title" className="page-title text-center">
+                9月25日，等你呀！
+              </h2>
+              <p className="page-subtitle text-center">
+                一起吹蜡烛、吃蛋糕，我还要收好多好多抱抱！
+              </p>
 
-            <div className="date-ticket">
-              <p className="date-number">25</p>
-              <div className="text-left">
-                <p className="text-lg font-black">2026年9月</p>
-                <p className="mt-1 text-sm font-bold text-muted-foreground">
-                  星期五 上午11点
-                </p>
+              <time
+                className="date-ticket"
+                dateTime="2026-09-25T11:00:00+08:00"
+              >
+                <span className="date-number">25</span>
+                <span className="date-copy">
+                  <span className="date-month">2026年9月</span>
+                  <span className="date-time">星期五 上午11点</span>
+                </span>
+              </time>
+              <Countdown />
+
+              <div className="venue-block">
+                <p className="venue-kicker">我们在这里见</p>
+                <h3 className="venue-title">5Senses武康花园餐厅</h3>
+                <p className="venue-address">上海市徐汇区武康路100弄1号</p>
+                <VenueActions />
               </div>
-            </div>
-            <Countdown />
-
-            <div className="venue-block">
-              <p className="text-sm font-black text-primary">我们在这里见</p>
-              <h3 className="venue-title">5Senses武康花园餐厅</h3>
-              <p className="venue-address">上海市徐汇区武康路100弄1号</p>
-              <VenueActions />
             </div>
           </Reveal>
         </article>
       </section>
 
       <section className="page-slide" aria-labelledby="story-title">
-        <article className="page-card paper-card story-page">
+        <article className="page-card illustrated-card story-page">
           <Reveal className="page-content story-content">
-            <header>
+            <header className="story-heading">
+              <p className="chapter-note">我的迷你成长册</p>
               <h2 id="story-title" className="page-title">
                 看看小时候的我
               </h2>
-              <p className="page-subtitle">小小的脸蛋，装着大大的快乐。</p>
+              <p className="page-subtitle">小小一团，也能装下好多好多快乐。</p>
             </header>
 
             <div className="early-collage">
@@ -146,47 +150,60 @@ export default function Home() {
       </section>
 
       <section className="page-slide" aria-labelledby="growing-title">
-        <article className="page-card paper-card growing-page">
+        <article className="page-card illustrated-card growing-page">
           <Reveal className="page-content story-content">
-            <header className="text-right">
+            <header className="story-heading growing-heading">
+              <p className="chapter-note">后来呀</p>
               <h2 id="growing-title" className="page-title">
-                我长大了一点点
+                咻！我长大了一点点
               </h2>
-              <p className="page-subtitle">会坐、会爬，还会甜甜地笑。</p>
+              <p className="page-subtitle">会坐、会爬，还学会了甜甜地笑。</p>
             </header>
 
-            <div className="growing-collage">
-              {growingMoments.map((photo, index) => (
-                <figure
-                  key={photo.src}
-                  className={`snapshot snapshot-growing-${index + 1}`}
-                >
-                  <div className="snapshot-photo">
-                    <Image
-                      src={photo.src}
-                      alt={photo.alt}
-                      loading="lazy"
-                      fill
-                      sizes={
-                        index === 0
-                          ? '(min-width: 640px) 330px, 62vw'
-                          : '(min-width: 640px) 120px, 25vw'
-                      }
-                      className={`object-cover ${photo.position}`}
-                    />
-                  </div>
-                  <figcaption>{photo.caption}</figcaption>
-                </figure>
-              ))}
+            <div className="growth-journey">
+              <figure className="growth-feature">
+                <div className="growth-feature-photo">
+                  <Image
+                    src={growingMoments[0].src}
+                    alt={growingMoments[0].alt}
+                    loading="lazy"
+                    fill
+                    sizes="(min-width: 640px) 360px, 72vw"
+                    className={`object-cover ${growingMoments[0].position}`}
+                  />
+                </div>
+                <figcaption>先抬起头，认真看看这个世界</figcaption>
+              </figure>
+
+              <div className="growth-chapters">
+                {growingMoments.slice(1).map((photo, index) => (
+                  <figure
+                    key={photo.src}
+                    className={`growth-chapter growth-chapter-${index + 1}`}
+                  >
+                    <div className="growth-chapter-photo">
+                      <Image
+                        src={photo.src}
+                        alt={photo.alt}
+                        loading="lazy"
+                        fill
+                        sizes="(min-width: 640px) 150px, 29vw"
+                        className={`object-cover ${photo.position}`}
+                      />
+                    </div>
+                    <figcaption>{photo.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
             </div>
           </Reveal>
         </article>
       </section>
 
       <section className="page-slide" aria-labelledby="closing-title">
-        <article className="page-card paper-card closing-page">
+        <article className="page-card illustrated-card closing-page">
           <Reveal className="page-content closing-content">
-            <figure className="closing-photo">
+            <figure className="closing-photo" aria-label="快一岁的安安">
               <Image
                 src="/photos/eleven-months.jpg"
                 alt="快一岁的安安坐在地垫上微笑"
@@ -196,13 +213,15 @@ export default function Home() {
                 className="object-cover object-[50%_42%]"
               />
             </figure>
-            <h2 id="closing-title" className="page-title text-center">
-              记得来抱抱我呀！
-            </h2>
-            <p className="page-subtitle max-w-sm text-center">
-              我会把最好看的笑容留给你。9月25日，武康路见！
-            </p>
-            <p className="signature-note">安安爸爸妈妈 敬邀</p>
+            <div className="closing-note">
+              <h2 id="closing-title" className="page-title text-center">
+                记得来抱抱我呀！
+              </h2>
+              <p className="page-subtitle text-center">
+                我把最好看的笑容留给你。9月25日，武康路见！
+              </p>
+              <p className="signature-note">安安爸爸妈妈 敬邀</p>
+            </div>
           </Reveal>
         </article>
       </section>
