@@ -1,6 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { MapPin } from 'lucide-react';
 
 const address = '上海市徐汇区武康路100弄1号';
 const mapUrl =
@@ -10,16 +12,23 @@ type CopyState = 'idle' | 'copied' | 'error';
 
 export function VenueActions() {
   const [copyState, setCopyState] = useState<CopyState>('idle');
+  const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(
+    () => () => {
+      if (resetTimer.current) clearTimeout(resetTimer.current);
+    },
+    [],
+  );
 
   async function copyAddress() {
     try {
       await navigator.clipboard.writeText(address);
       setCopyState('copied');
-      window.setTimeout(() => setCopyState('idle'), 2200);
     } catch {
       setCopyState('error');
-      window.setTimeout(() => setCopyState('idle'), 2200);
     }
+    if (resetTimer.current) clearTimeout(resetTimer.current);
+    resetTimer.current = setTimeout(() => setCopyState('idle'), 2200);
   }
 
   const copyLabel =
@@ -30,23 +39,25 @@ export function VenueActions() {
         : '复制地址';
 
   return (
-    <div className="mt-5 flex flex-wrap justify-center gap-3">
+    <div className="venue-actions">
       <a
         href={mapUrl}
         target="_blank"
         rel="noreferrer"
-        className="inline-flex min-h-11 items-center justify-center rounded-full bg-primary px-5 text-sm font-black whitespace-nowrap text-primary-foreground transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50 active:scale-[0.98]"
+        className="venue-button venue-button-primary"
       >
+        <MapPin size={16} aria-hidden="true" />
         导航前往
       </a>
-      <button
+      <Button
         type="button"
         onClick={copyAddress}
-        className="inline-flex h-11 items-center justify-center rounded-full border-2 border-primary bg-card px-5 text-sm font-black whitespace-nowrap text-primary transition-transform duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50 active:translate-y-px"
+        variant="outline"
+        className="venue-button venue-button-secondary"
         aria-live="polite"
       >
         {copyLabel}
-      </button>
+      </Button>
     </div>
   );
 }

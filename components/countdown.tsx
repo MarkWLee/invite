@@ -31,40 +31,40 @@ function calculateTimeLeft(): TimeLeft {
 }
 
 export function Countdown() {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft);
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
 
   useEffect(() => {
+    const initial = window.setTimeout(
+      () => setTimeLeft(calculateTimeLeft()),
+      0,
+    );
     const timer = window.setInterval(
       () => setTimeLeft(calculateTimeLeft()),
       60_000,
     );
-    return () => window.clearInterval(timer);
+    return () => {
+      window.clearTimeout(initial);
+      window.clearInterval(timer);
+    };
   }, []);
 
+  if (!timeLeft) return <p className="countdown">正在数着日子等你来</p>;
+
   if (timeLeft.state === 'today') {
-    return (
-      <p className="mt-5 text-sm font-black text-primary">
-        今天见，我已经准备好蛋糕啦！
-      </p>
-    );
+    return <p className="countdown">今天见，我已经准备好蛋糕啦！</p>;
   }
 
   if (timeLeft.state === 'past') {
-    return (
-      <p className="mt-5 text-sm font-black text-primary">
-        谢谢你陪我过第一个生日！
-      </p>
-    );
+    return <p className="countdown">谢谢你陪我过第一个生日！</p>;
   }
 
   return (
-    <div aria-live="polite" suppressHydrationWarning>
-      <p className="mt-5 text-xs font-semibold text-muted-foreground">
-        距离我们见面还有
-      </p>
-      <p className="mt-1 text-sm font-black tabular-nums text-primary">
+    <p className="countdown" aria-live="polite">
+      还有{' '}
+      <strong>
         {timeLeft.days} 天 {timeLeft.hours} 时 {timeLeft.minutes} 分
-      </p>
-    </div>
+      </strong>{' '}
+      就见面啦
+    </p>
   );
 }
