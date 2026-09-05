@@ -2,6 +2,9 @@ import { Countdown } from '@/components/countdown';
 import { InvitationBook } from '@/components/invitation-book';
 import { VenueActions } from '@/components/venue-actions';
 import Image from 'next/image';
+import { assetPath } from '@/lib/site-path';
+
+export const dynamic = 'force-static';
 
 function Photo({
   src,
@@ -20,7 +23,7 @@ function Photo({
     <figure className={`keepsake ${className}`}>
       <div className="keepsake-image">
         <Image
-          src={src}
+          src={assetPath(src)}
           alt={alt}
           fill
           sizes="(min-width: 600px) 400px, 85vw"
@@ -45,7 +48,7 @@ export default function Home() {
           安安一周岁生日宴邀请函
         </h1>
         <Image
-          src="/cartoon-invitation-annan-11.png"
+          src={assetPath('/cartoon-invitation-annan-11.png')}
           alt="嗨，我一岁啦！我是安安，2026年9月25日星期五上午11点，5Senses武康花园餐厅，上海市徐汇区武康路100弄1号。"
           width={941}
           height={1671}

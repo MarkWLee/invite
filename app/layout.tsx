@@ -1,6 +1,7 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import { siteUrl } from '@/lib/site-path';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -12,7 +13,15 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  alternates: { canonical: siteUrl },
   title: '安安一周岁生日宴',
   description: '嗨，我是安安！9月25日来陪我吹蜡烛、吃蛋糕吧。',
   openGraph: {
@@ -22,7 +31,7 @@ export const metadata: Metadata = {
     locale: 'zh_CN',
     images: [
       {
-        url: '/og.png',
+        url: new URL('og.png', siteUrl).href,
         width: 1200,
         height: 630,
         alt: '安安一周岁生日宴，2026年9月25日上午11点',
@@ -33,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '安安一周岁生日宴',
     description: '9月25日上午11点，来陪我吹蜡烛、吃蛋糕吧！',
-    images: ['/og.png'],
+    images: [new URL('og.png', siteUrl).href],
   },
 };
 

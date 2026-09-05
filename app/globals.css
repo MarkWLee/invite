@@ -80,14 +80,22 @@
 }
 
 .invitation-room {
-  --book-height: min(760px, calc(100svh - 140px), calc((100vw - 30px) * 1.6));
+  --book-height: min(
+    820px,
+    calc(
+      100svh - max(10px, env(safe-area-inset-top)) -
+        max(10px, env(safe-area-inset-bottom)) - 36px
+    ),
+    calc((100vw - 20px) * 1.6)
+  );
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 8px 12px;
+  padding: max(10px, env(safe-area-inset-top)) 10px
+    max(10px, env(safe-area-inset-bottom));
 }
 .book-titlebar {
   width: calc(var(--book-height) * 0.625);
@@ -198,45 +206,6 @@
 }
 .book-stage[data-turning='true'] .page-corner {
   visibility: hidden;
-}
-.book-controls {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  margin-top: 17px;
-}
-.book-controls .book-arrow {
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border-radius: 50%;
-  border: 1px solid #b7a18e;
-  color: #604638;
-  background: #ffffff24;
-}
-.book-controls .book-arrow:hover:not(:disabled) {
-  background: #fff9ee;
-}
-.book-controls .book-arrow:disabled {
-  opacity: 0.25;
-}
-.chapter-status {
-  min-width: 130px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 14px;
-}
-.page-count {
-  font-size: 12px;
-  color: var(--muted-foreground);
-  font-variant-numeric: tabular-nums;
-}
-.book-help {
-  margin-top: 6px;
-  color: var(--muted-foreground);
-  font-size: 12px;
 }
 
 .invitation-page {
@@ -617,20 +586,18 @@
 }
 @media (max-height: 500px) and (orientation: landscape) {
   .invitation-room {
-    --book-height: min(680px, calc(100svh - 32px));
+    --book-height: min(
+      680px,
+      calc(
+        100svh - max(10px, env(safe-area-inset-top)) -
+          max(10px, env(safe-area-inset-bottom)) - 8px
+      )
+    );
     flex-direction: row;
     gap: 28px;
   }
-  .book-titlebar,
-  .book-help {
+  .book-titlebar {
     display: none;
-  }
-  .book-controls {
-    flex-direction: column;
-    margin-top: 0;
-  }
-  .chapter-status {
-    flex-direction: column;
   }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import {
   Children,
   useCallback,
@@ -177,33 +177,10 @@ export function InvitationBook({ children }: { children: ReactNode }) {
           </Button>
         </div>
       </div>
-      <nav className="book-controls" aria-label="邀请函翻页">
-        <Button
-          variant="ghost"
-          className="book-arrow"
-          disabled={index === 0 || !!turn}
-          onClick={() => go(index - 1)}
-          aria-label="上一页"
-        >
-          <ChevronLeft aria-hidden="true" />
-        </Button>
-        <div className="chapter-status" aria-live="polite" aria-atomic="true">
-          <span>{chapters[index].label}</span>
-          <span className="page-count">
-            {index + 1} / {pages.length}
-          </span>
-        </div>
-        <Button
-          variant="ghost"
-          className="book-arrow"
-          disabled={!!turn}
-          onClick={() => go(index === pages.length - 1 ? 0 : index + 1)}
-          aria-label={index === pages.length - 1 ? '回到封面' : '下一页'}
-        >
-          <ChevronRight aria-hidden="true" />
-        </Button>
-      </nav>
-      <p className="book-help">左右滑动，或轻点页角翻一翻</p>
+      <p className="sr-only" aria-live="polite" aria-atomic="true">
+        {chapters[index].label}，第 {index + 1} 页，共 {pages.length} 页。
+        左右滑动或轻点页角翻页。
+      </p>
     </main>
   );
 }
